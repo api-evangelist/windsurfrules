@@ -1,0 +1,14 @@
+name: .windsurfrules
+description: Configuration file for Windsurf AI code editor containing project-specific
+  rules, coding conventions, and instructions for the Cascade AI assistant.
+url: ''
+tags:
+- AI Agents
+- Windsurf
+- Developer Workflow
+- Coding Standards
+- AI Copilot
+created: '2025'
+modified: '2025'
+apis: []
+common: []
