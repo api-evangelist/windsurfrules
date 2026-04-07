@@ -1,5 +1,5 @@
 aid: windsurfrules
-name: .windsurfrules
+name: .Windsurfrules
 description: Configuration file for Windsurf AI code editor containing project-specific
   rules, coding conventions, and instructions for the Cascade AI assistant.
 type: Index
