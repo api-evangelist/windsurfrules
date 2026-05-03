@@ -1,0 +1,46 @@
+{
+  "operation": "get-custom-analytics",
+  "method": "POST",
+  "path": "/Analytics",
+  "summary": "Get Custom Analytics",
+  "request": {
+    "service_key": "your_service_key_here",
+    "start_timestamp": "2026-04-01T00:00:00Z",
+    "end_timestamp": "2026-04-30T23:59:59Z",
+    "query_requests": [
+      {
+        "data_source": "QUERY_DATA_SOURCE_USER_DATA",
+        "selections": [
+          { "field": "email", "name": "user_email" },
+          { "field": "completions_shown", "aggregation_function": "SUM" },
+          { "field": "completions_accepted", "aggregation_function": "SUM" }
+        ],
+        "aggregations": [
+          { "field": "email", "name": "user_email" }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "queryResults": [
+      {
+        "responseItems": [
+          {
+            "item": {
+              "user_email": "alice@example.com",
+              "completions_shown": "1250",
+              "completions_accepted": "875"
+            }
+          },
+          {
+            "item": {
+              "user_email": "bob@example.com",
+              "completions_shown": "980",
+              "completions_accepted": "612"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

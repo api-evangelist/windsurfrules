@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/windsurfrules/refs/heads/main/json-schema/windsurf-analytics-request-schema.json",
+  "title": "AnalyticsRequest",
+  "description": "Request body for the Windsurf Enterprise Custom Analytics endpoint",
+  "type": "object",
+  "required": ["service_key", "query_requests"],
+  "properties": {
+    "service_key": {
+      "type": "string",
+      "description": "Enterprise service key with Analytics Read permission"
+    },
+    "group_name": {
+      "type": "string",
+      "description": "Optional filter to a specific user group"
+    },
+    "start_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start of the query time range (ISO 8601)"
+    },
+    "end_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End of the query time range (ISO 8601)"
+    },
+    "query_requests": {
+      "type": "array",
+      "description": "Array of query specifications",
+      "items": {
+        "type": "object",
+        "required": ["data_source", "selections"],
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "enum": [
+              "QUERY_DATA_SOURCE_USER_DATA",
+              "QUERY_DATA_SOURCE_CHAT_DATA",
+              "QUERY_DATA_SOURCE_COMMAND_DATA",
+              "QUERY_DATA_SOURCE_PCW_DATA"
+            ]
+          },
+          "selections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "field": { "type": "string" },
+                "name": { "type": "string" },
+                "aggregation_function": {
+                  "type": "string",
+                  "enum": ["SUM", "AVG", "MAX", "MIN", "COUNT", "UNSPECIFIED"]
+                }
+              }
+            }
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "filter": {
+                  "type": "string",
+                  "enum": ["EQUAL", "NOT_EQUAL", "GREATER_THAN", "LESS_THAN", "GE", "LE"]
+                },
+                "value": { "type": "string" }
+              }
+            }
+          },
+          "aggregations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "field": { "type": "string" },
+                "name": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

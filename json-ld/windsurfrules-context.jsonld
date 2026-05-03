@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "windsurf": "https://windsurf.com/vocab#",
+
+    "WindsurfRules": "windsurf:WindsurfRules",
+    "CascadeAgent": "windsurf:CascadeAgent",
+    "CompletionAnalytics": "windsurf:CompletionAnalytics",
+    "UserAnalytics": "windsurf:UserAnalytics",
+    "CascadeAnalytics": "windsurf:CascadeAnalytics",
+    "ServiceKey": "windsurf:ServiceKey",
+    "UsageConfig": "windsurf:UsageConfig",
+
+    "serviceKey": {
+      "@id": "windsurf:serviceKey",
+      "@type": "xsd:string"
+    },
+    "groupName": {
+      "@id": "windsurf:groupName",
+      "@type": "xsd:string"
+    },
+    "completionsShown": {
+      "@id": "windsurf:completionsShown",
+      "@type": "xsd:integer"
+    },
+    "completionsAccepted": {
+      "@id": "windsurf:completionsAccepted",
+      "@type": "xsd:integer"
+    },
+    "acceptanceRate": {
+      "@id": "windsurf:acceptanceRate",
+      "@type": "xsd:decimal"
+    },
+    "linesSaved": {
+      "@id": "windsurf:linesSaved",
+      "@type": "xsd:integer"
+    },
+    "cascadeLines": {
+      "@id": "windsurf:cascadeLines",
+      "@type": "xsd:integer"
+    },
+    "totalCredits": {
+      "@id": "windsurf:totalCredits",
+      "@type": "xsd:integer"
+    },
+    "usedCredits": {
+      "@id": "windsurf:usedCredits",
+      "@type": "xsd:integer"
+    },
+    "remainingCredits": {
+      "@id": "windsurf:remainingCredits",
+      "@type": "xsd:integer"
+    },
+    "dataSource": {
+      "@id": "windsurf:dataSource",
+      "@type": "xsd:string"
+    },
+    "rulesFile": {
+      "@id": "windsurf:rulesFile",
+      "@type": "xsd:string"
+    },
+    "activationMode": {
+      "@id": "windsurf:activationMode",
+      "@type": "xsd:string"
+    },
+    "SoftwareApplication": "schema:SoftwareApplication",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version"
+  }
+}

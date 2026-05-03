@@ -1,0 +1,89 @@
+extends: [[spectral:oas, recommended]]
+
+rules:
+  # Windsurf Enterprise API uses POST for all endpoints (RPC-style)
+  windsurf-post-only:
+    description: All Windsurf Enterprise API endpoints use POST method
+    message: "Windsurf Enterprise API endpoints should use POST method"
+    severity: info
+    given: "$.paths[*]"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+
+  # All operations must have operationIds in camelCase
+  windsurf-operation-id-required:
+    description: All operations must have an operationId
+    message: "Operation is missing an operationId"
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+
+  windsurf-operation-id-camel-case:
+    description: OperationIds should use camelCase
+    message: "OperationId '{{value}}' should use camelCase"
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  # Operations must have tags
+  windsurf-operation-tags-required:
+    description: All operations must have at least one tag
+    message: "Operation is missing tags"
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+
+  # Summaries must be present
+  windsurf-summary-required:
+    description: All operations must have a summary
+    message: "Operation is missing a summary"
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: summary
+      function: truthy
+
+  # Request bodies must include service_key
+  windsurf-service-key-in-body:
+    description: All Windsurf API requests should include service_key in body
+    message: "Request body schema should include service_key for authentication"
+    severity: warn
+    given: "$.paths[*].post.requestBody.content['application/json'].schema"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+
+  # Schemas must have descriptions
+  windsurf-schema-descriptions:
+    description: Schema components should have descriptions
+    message: "Schema '{{path}}' is missing a description"
+    severity: warn
+    given: "$.components.schemas[*]"
+    then:
+      field: description
+      function: truthy
+
+  # Response 401 must be defined for auth-required endpoints
+  windsurf-auth-error-response:
+    description: POST operations must define a 401 response
+    message: "Operation is missing 401 Unauthorized response"
+    severity: warn
+    given: "$.paths[*].post.responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required: ["401"]
