@@ -1,0 +1,13 @@
+{
+  "repo": "windsurfrules",
+  "feeds": [
+    {
+      "source": "https://windsurf.com/blog",
+      "feed_url": "https://windsurf.com/feed.xml",
+      "saved": 10,
+      "title": "Codeium Blog Posts"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:38:17Z"
+}
