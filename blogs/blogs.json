@@ -3,11 +3,11 @@
   "feeds": [
     {
       "source": "https://windsurf.com/blog",
-      "feed_url": "https://windsurf.com/feed.xml",
-      "saved": 10,
-      "title": "Codeium Blog Posts"
+      "feed_url": "https://windsurf.com/feed/",
+      "title": "Codeium Blog Posts",
+      "saved": 1
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-05-03T23:38:17Z"
+  "post_count": 11,
+  "fetched": "2026-05-09T20:17:51Z"
 }
