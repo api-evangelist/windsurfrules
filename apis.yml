@@ -75,6 +75,10 @@ common:
     url: https://raw.githubusercontent.com/api-evangelist/windsurfrules/refs/heads/main/vocabulary/windsurfrules-vocabulary.yml
   - type: NaftikoCapability
     url: https://raw.githubusercontent.com/api-evangelist/windsurfrules/refs/heads/main/capabilities/analytics-and-billing.yaml
+  - type: Integrations
+    url: https://windsurf.com/integrations
+integrations:
+  - name: JetBrains Plugin
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
