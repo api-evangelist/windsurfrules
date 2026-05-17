@@ -51,7 +51,7 @@ common:
     url: https://docs.windsurf.com
   - type: APIReference
     url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
-  - type: Changelog
+  - type: ChangeLog
     url: https://windsurf.com/changelog
   - type: Blog
     url: https://windsurf.com/blog
