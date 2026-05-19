@@ -1,0 +1,161 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Windsurf Enterprise API — billing
+  description: 'Windsurf Enterprise API — billing. 3 operations. Lead operation: Get Team Credit Balance. Self-contained Naftiko
+    capability covering one Windsurfrules business surface.'
+  tags:
+  - Windsurfrules
+  - billing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WINDSURFRULES_API_KEY: WINDSURFRULES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: windsurf-enterprise-billing
+    baseUri: https://server.codeium.com/api/v1
+    description: Windsurf Enterprise API — billing business capability. Self-contained, no shared references.
+    resources:
+    - name: GetTeamCreditBalance
+      path: /GetTeamCreditBalance
+      operations:
+      - name: getteamcreditbalance
+        method: POST
+        description: Get Team Credit Balance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: GetUsageConfig
+      path: /GetUsageConfig
+      operations:
+      - name: getusageconfig
+        method: POST
+        description: Get Usage Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: UsageConfig
+      path: /UsageConfig
+      operations:
+      - name: setusageconfig
+        method: POST
+        description: Set Usage Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: windsurf-enterprise-billing-rest
+    port: 8080
+    description: REST adapter for Windsurf Enterprise API — billing. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/getteamcreditbalance
+      name: getteamcreditbalance
+      description: REST surface for GetTeamCreditBalance.
+      operations:
+      - method: POST
+        name: getteamcreditbalance
+        description: Get Team Credit Balance
+        call: windsurf-enterprise-billing.getteamcreditbalance
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getusageconfig
+      name: getusageconfig
+      description: REST surface for GetUsageConfig.
+      operations:
+      - method: POST
+        name: getusageconfig
+        description: Get Usage Configuration
+        call: windsurf-enterprise-billing.getusageconfig
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/usageconfig
+      name: usageconfig
+      description: REST surface for UsageConfig.
+      operations:
+      - method: POST
+        name: setusageconfig
+        description: Set Usage Configuration
+        call: windsurf-enterprise-billing.setusageconfig
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: windsurf-enterprise-billing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Windsurf Enterprise API — billing. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-team-credit-balance
+      description: Get Team Credit Balance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: windsurf-enterprise-billing.getteamcreditbalance
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-usage-configuration
+      description: Get Usage Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: windsurf-enterprise-billing.getusageconfig
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: set-usage-configuration
+      description: Set Usage Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: windsurf-enterprise-billing.setusageconfig
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
