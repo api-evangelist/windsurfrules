@@ -75,6 +75,8 @@ common:
   url: https://raw.githubusercontent.com/api-evangelist/windsurfrules/refs/heads/main/vocabulary/windsurfrules-vocabulary.yml
 - type: Integrations
   url: https://windsurf.com/integrations
+- type: LLMsTxt
+  url: https://docs.windsurf.com/llms.txt
 integrations:
 - name: JetBrains Plugin
 maintainers:
