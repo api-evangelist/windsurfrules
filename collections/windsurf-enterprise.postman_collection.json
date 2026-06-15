@@ -1,0 +1,1190 @@
+{
+  "item": [
+    {
+      "id": "42e9d344-8958-4802-8947-46163c819306",
+      "name": "analytics",
+      "description": {
+        "content": "Code completion and Cascade AI usage analytics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "afecb7aa-6414-46d0-a48a-129ae49c0fee",
+          "name": "Get Custom Analytics",
+          "request": {
+            "name": "Get Custom Analytics",
+            "description": {
+              "content": "Query detailed usage analytics for code completions, chat interactions, and command usage. Supports filtering by user, time range, and data source, with aggregation options for reporting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Analytics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_key\": \"<string>\",\n  \"query_requests\": [\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"group_name\": \"<string>\",\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a68f4dc-455b-45b3-96ba-52578780e2a8",
+              "name": "Analytics query results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"query_requests\": [\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"group_name\": \"<string>\",\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"queryResults\": [\n    {\n      \"responseItems\": [\n        {\n          \"item\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        },\n        {\n          \"item\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"responseItems\": [\n        {\n          \"item\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"item\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0caf301-57dd-458b-a9d0-7721629657ba",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"query_requests\": [\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"group_name\": \"<string>\",\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 834,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e24b8b93-e4a6-474c-9993-a4b9981c8f1b",
+              "name": "Invalid or missing service key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"query_requests\": [\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"group_name\": \"<string>\",\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 834,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17e7ed9b-f152-4b39-b916-acd200a33991",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"query_requests\": [\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"data_source\": \"<string>\",\n      \"selections\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\",\n          \"aggregation_function\": \"<string>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"filter\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"aggregations\": [\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"field\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"group_name\": \"<string>\",\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 834,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f9a2dd4-963e-4baf-8a10-829744867c08",
+          "name": "Get User Page Analytics",
+          "request": {
+            "name": "Get User Page Analytics",
+            "description": {
+              "content": "Retrieve user-level analytics data including per-user code completion counts, acceptance rates, and activity metrics. Requires Teams Read-Only service key permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "UserPageAnalytics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d98a664-b557-4acf-8ff0-012326278755",
+              "name": "User page analytics results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserPageAnalytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"users\": [\n    {\n      \"email\": \"string\",\n      \"completions_shown\": 2540,\n      \"completions_accepted\": 626,\n      \"acceptance_rate\": 4395.8755989423835,\n      \"lines_saved\": 4663\n    },\n    {\n      \"email\": \"string\",\n      \"completions_shown\": 1649,\n      \"completions_accepted\": 4094,\n      \"acceptance_rate\": 2821.3337377139637,\n      \"lines_saved\": 523\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2dd6e90-d2df-40e4-b522-05d93cc0c159",
+              "name": "Invalid or missing service key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserPageAnalytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "164496cc-5d4e-40d6-9047-e24d93db108c",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserPageAnalytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b02df79-426d-4fb2-8325-cae67c45467f",
+          "name": "Get Cascade Analytics",
+          "request": {
+            "name": "Get Cascade Analytics",
+            "description": {
+              "content": "Retrieve analytics for Cascade AI agent usage including lines of code generated, AI actions taken, and session metrics. Requires Teams Read-Only service key permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CascadeAnalytics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\",\n  \"query_requests\": [\n    {\n      \"cascade_lines\": \"<boolean>\"\n    },\n    {\n      \"cascade_lines\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b17092e3-6bb1-4110-89ef-fcaff6d4679c",
+              "name": "Cascade analytics results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CascadeAnalytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\",\n  \"query_requests\": [\n    {\n      \"cascade_lines\": \"<boolean>\"\n    },\n    {\n      \"cascade_lines\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"queryResults\": [\n    {\n      \"responseItems\": [\n        {\n          \"item\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"item\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"responseItems\": [\n        {\n          \"item\": {\n            \"key_0\": \"string\"\n          }\n        },\n        {\n          \"item\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34e0dbb2-dc4d-4b5e-a5db-20b210670156",
+              "name": "Invalid or missing service key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CascadeAnalytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\",\n  \"query_requests\": [\n    {\n      \"cascade_lines\": \"<boolean>\"\n    },\n    {\n      \"cascade_lines\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f733f0f-75c0-4582-a1e9-0190772be3f5",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CascadeAnalytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\",\n  \"query_requests\": [\n    {\n      \"cascade_lines\": \"<boolean>\"\n    },\n    {\n      \"cascade_lines\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0b96dc12-b87f-4fdb-a0d8-7b7cf11badfe",
+      "name": "billing",
+      "description": {
+        "content": "Usage configuration and credit balance management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe928100-86bb-4536-b9b6-99ef00a8947d",
+          "name": "Set Usage Configuration",
+          "request": {
+            "name": "Set Usage Configuration",
+            "description": {
+              "content": "Configure usage settings for the team including AI model access controls, feature flags, and usage limits. Requires Billing Write service key permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "UsageConfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_key\": \"<string>\",\n  \"model_access\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"feature_flags\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "016f762a-510d-458a-af61-ffa6f81a0adb",
+              "name": "Usage configuration updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UsageConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"model_access\": {\n    \"key_0\": \"<boolean>\"\n  },\n  \"feature_flags\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"model_access\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"feature_flags\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b57da6b4-e77a-46e3-81ac-7731b74e2991",
+              "name": "Invalid or missing service key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UsageConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"model_access\": {\n    \"key_0\": \"<boolean>\"\n  },\n  \"feature_flags\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a70893d5-9572-498d-8631-c5eba18d6e69",
+              "name": "Insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UsageConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"model_access\": {\n    \"key_0\": \"<boolean>\"\n  },\n  \"feature_flags\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2155be31-51fe-4d3c-8407-676eb601cf95",
+          "name": "Get Usage Configuration",
+          "request": {
+            "name": "Get Usage Configuration",
+            "description": {
+              "content": "Retrieve the current usage configuration settings for the team. Requires Billing Read service key permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "GetUsageConfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3d0749d2-c2d7-4f10-8abf-2d55bf6f4ce4",
+              "name": "Current usage configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetUsageConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"model_access\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"feature_flags\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ad465c5-cff9-4326-aa23-6948eb370561",
+              "name": "Invalid or missing service key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetUsageConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24aa11cc-ae98-4d89-95a3-f68086552124",
+          "name": "Get Team Credit Balance",
+          "request": {
+            "name": "Get Team Credit Balance",
+            "description": {
+              "content": "Retrieve the current credit balance for the enterprise team account, including credits used and remaining. Requires Billing Read service key permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "GetTeamCreditBalance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "93f1a70a-c6fe-4d68-8b87-3dd1b8334988",
+              "name": "Team credit balance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetTeamCreditBalance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_credits\": 2966,\n  \"used_credits\": 6848,\n  \"remaining_credits\": 4555,\n  \"reset_date\": \"1977-06-22T04:28:24.142Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e60ee6d6-ed7b-4475-83ca-f62eed16dd53",
+              "name": "Invalid or missing service key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetTeamCreditBalance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9de73389-bbc4-4f2a-b4ea-74ab0c2b0c18",
+      "name": "teams",
+      "description": {
+        "content": "Team and user analytics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50e3d7e2-a449-4aa6-bddb-3be7e9ba6adb",
+          "name": "Get User Page Analytics",
+          "request": {
+            "name": "Get User Page Analytics",
+            "description": {
+              "content": "Retrieve user-level analytics data including per-user code completion counts, acceptance rates, and activity metrics. Requires Teams Read-Only service key permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "UserPageAnalytics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "417d0842-9407-447d-aaa0-867af6fda433",
+              "name": "User page analytics results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserPageAnalytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"users\": [\n    {\n      \"email\": \"string\",\n      \"completions_shown\": 4067,\n      \"completions_accepted\": 9797,\n      \"acceptance_rate\": 4265.751938954842,\n      \"lines_saved\": 8056\n    },\n    {\n      \"email\": \"string\",\n      \"completions_shown\": 9689,\n      \"completions_accepted\": 547,\n      \"acceptance_rate\": 8257.13691074111,\n      \"lines_saved\": 2021\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9be196f-9ac0-4749-9630-7e2336387be9",
+              "name": "Invalid or missing service key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserPageAnalytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "70ceca6a-443a-415a-b507-9de15510a2d6",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserPageAnalytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_key\": \"<string>\",\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"start_timestamp\": \"<dateTime>\",\n  \"end_timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://server.codeium.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "39e999f9-6006-4113-8d33-39fec6d1ade8",
+    "name": "Windsurf Enterprise API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Windsurf Enterprise API (formerly Codeium Enterprise API) provides programmatic access to analytics, usage data, billing configuration, and team management for enterprise customers of Windsurf — the AI-native code editor by Codeium. The API enables teams to query code completion usage, Cascade AI analytics, billing configurations, and credit balances. Available for Enterprise plans only. Authentication uses service keys included in the request body.\n\nContact Support:\n Name: Windsurf Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
