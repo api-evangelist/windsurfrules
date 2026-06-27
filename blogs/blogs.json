@@ -10,9 +10,12 @@
     },
     {
       "source": "https://windsurf.com/changelog",
-      "error": "HTTPError"
+      "feed_url": "https://docs.devin.ai/desktop/changelog/rss.xml",
+      "title": "",
+      "saved": 2,
+      "method": "discovered"
     }
   ],
-  "post_count": 57,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 59,
+  "fetched": "2026-06-27T12:03:07Z"
 }
