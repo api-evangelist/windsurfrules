@@ -43,6 +43,10 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/windsurfrules/refs/heads/main/openapi/windsurf-enterprise-openapi.yml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/windsurfrules-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/windsurfrules-domain-security.yml
   - type: Website
     url: https://windsurf.com
   - type: Documentation
