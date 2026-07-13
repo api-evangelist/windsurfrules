@@ -9,13 +9,20 @@
       "method": "feed"
     },
     {
+      "source": "https://docs.devin.ai/desktop/changelog/rss.xml",
+      "feed_url": "https://docs.devin.ai/desktop/changelog/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://windsurf.com/changelog",
       "feed_url": "https://docs.devin.ai/desktop/changelog/rss.xml",
       "title": "",
-      "saved": 2,
+      "saved": 0,
       "method": "discovered"
     }
   ],
-  "post_count": 59,
-  "fetched": "2026-06-27T12:03:07Z"
+  "post_count": 72,
+  "fetched": "2026-07-11T11:50:51Z"
 }
