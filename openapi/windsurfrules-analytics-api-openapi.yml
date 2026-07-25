@@ -1,0 +1,346 @@
+openapi: 3.0.3
+info:
+  title: Windsurf Enterprise analytics API
+  description: The Windsurf Enterprise API (formerly Codeium Enterprise API) provides programmatic access to analytics, usage data, billing configuration, and team management for enterprise customers of Windsurf — the AI-native code editor by Codeium. The API enables teams to query code completion usage, Cascade AI analytics, billing configurations, and credit balances. Available for Enterprise plans only. Authentication uses service keys included in the request body.
+  version: 1.0.0
+  contact:
+    name: Windsurf Developer Support
+    url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
+servers:
+- url: https://server.codeium.com/api/v1
+  description: Windsurf Enterprise API
+tags:
+- name: analytics
+  description: Code completion and Cascade AI usage analytics
+paths:
+  /Analytics:
+    post:
+      operationId: getCustomAnalytics
+      summary: Get Custom Analytics
+      description: Query detailed usage analytics for code completions, chat interactions, and command usage. Supports filtering by user, time range, and data source, with aggregation options for reporting.
+      tags:
+      - analytics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalyticsRequest'
+      responses:
+        '200':
+          description: Analytics query results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsResponse'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Invalid or missing service key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /UserPageAnalytics:
+    post:
+      operationId: getUserPageAnalytics
+      summary: Get User Page Analytics
+      description: Retrieve user-level analytics data including per-user code completion counts, acceptance rates, and activity metrics. Requires Teams Read-Only service key permission.
+      tags:
+      - analytics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPageAnalyticsRequest'
+      responses:
+        '200':
+          description: User page analytics results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPageAnalyticsResponse'
+        '401':
+          description: Invalid or missing service key
+        '429':
+          description: Rate limit exceeded
+  /CascadeAnalytics:
+    post:
+      operationId: getCascadeAnalytics
+      summary: Get Cascade Analytics
+      description: Retrieve analytics for Cascade AI agent usage including lines of code generated, AI actions taken, and session metrics. Requires Teams Read-Only service key permission.
+      tags:
+      - analytics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CascadeAnalyticsRequest'
+      responses:
+        '200':
+          description: Cascade analytics results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CascadeAnalyticsResponse'
+        '401':
+          description: Invalid or missing service key
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    AnalyticsRequest:
+      type: object
+      description: Request body for custom analytics queries
+      required:
+      - service_key
+      - query_requests
+      properties:
+        service_key:
+          type: string
+          description: Service key with Analytics Read permission
+        group_name:
+          type: string
+          description: Optional filter to a specific user group
+        start_timestamp:
+          type: string
+          format: date-time
+          description: Start of the query time range (ISO 8601)
+        end_timestamp:
+          type: string
+          format: date-time
+          description: End of the query time range (ISO 8601)
+        query_requests:
+          type: array
+          description: Array of query specifications
+          items:
+            $ref: '#/components/schemas/QueryRequest'
+    CascadeAnalyticsResponse:
+      type: object
+      description: Cascade AI analytics response
+      properties:
+        queryResults:
+          type: array
+          description: Query results
+          items:
+            $ref: '#/components/schemas/QueryResult'
+    UserAnalytics:
+      type: object
+      description: Analytics for a single user
+      properties:
+        email:
+          type: string
+          description: User email
+        completions_shown:
+          type: integer
+          description: Number of code completions shown
+        completions_accepted:
+          type: integer
+          description: Number of code completions accepted
+        acceptance_rate:
+          type: number
+          format: float
+          description: Completion acceptance rate (0.0-1.0)
+        lines_saved:
+          type: integer
+          description: Estimated lines of code saved
+    UserPageAnalyticsResponse:
+      type: object
+      description: User-level analytics response
+      properties:
+        users:
+          type: array
+          description: Analytics data per user
+          items:
+            $ref: '#/components/schemas/UserAnalytics'
+    CascadeAnalyticsRequest:
+      type: object
+      description: Request for Cascade AI analytics
+      required:
+      - service_key
+      properties:
+        service_key:
+          type: string
+          description: Service key with Teams Read-Only permission
+        emails:
+          type: array
+          description: Optional list of user emails to filter
+          items:
+            type: string
+        start_timestamp:
+          type: string
+          format: date-time
+          description: Start of the time range
+        end_timestamp:
+          type: string
+          format: date-time
+          description: End of the time range
+        query_requests:
+          type: array
+          description: Cascade-specific query parameters
+          items:
+            type: object
+            properties:
+              cascade_lines:
+                type: boolean
+                description: Include Cascade lines of code generated
+    Selection:
+      type: object
+      description: A field selection with optional aggregation
+      required:
+      - field
+      properties:
+        field:
+          type: string
+          description: Field name to select
+        name:
+          type: string
+          description: Optional alias for the selected field
+        aggregation_function:
+          type: string
+          description: Aggregation function to apply
+          enum:
+          - SUM
+          - AVG
+          - MAX
+          - MIN
+          - COUNT
+          - UNSPECIFIED
+    QueryResult:
+      type: object
+      description: Result set for a single query request
+      properties:
+        responseItems:
+          type: array
+          description: Individual result rows
+          items:
+            $ref: '#/components/schemas/ResponseItem'
+    Filter:
+      type: object
+      description: A filter condition for analytics queries
+      required:
+      - name
+      - filter
+      - value
+      properties:
+        name:
+          type: string
+          description: Field name to filter on
+        filter:
+          type: string
+          description: Filter comparison operation
+          enum:
+          - EQUAL
+          - NOT_EQUAL
+          - GREATER_THAN
+          - LESS_THAN
+          - GE
+          - LE
+        value:
+          type: string
+          description: Comparison value
+    UserPageAnalyticsRequest:
+      type: object
+      description: Request for user page analytics
+      required:
+      - service_key
+      properties:
+        service_key:
+          type: string
+          description: Service key with Teams Read-Only permission
+        emails:
+          type: array
+          description: Optional list of user emails to filter
+          items:
+            type: string
+        start_timestamp:
+          type: string
+          format: date-time
+          description: Start of the time range
+        end_timestamp:
+          type: string
+          format: date-time
+          description: End of the time range
+    Aggregation:
+      type: object
+      description: A grouping specification for analytics queries
+      required:
+      - field
+      - name
+      properties:
+        field:
+          type: string
+          description: Field name to group by
+        name:
+          type: string
+          description: Alias for the grouped field
+    QueryRequest:
+      type: object
+      description: A single analytics query specification
+      required:
+      - data_source
+      - selections
+      properties:
+        data_source:
+          type: string
+          description: The data source to query
+          enum:
+          - QUERY_DATA_SOURCE_USER_DATA
+          - QUERY_DATA_SOURCE_CHAT_DATA
+          - QUERY_DATA_SOURCE_COMMAND_DATA
+          - QUERY_DATA_SOURCE_PCW_DATA
+        selections:
+          type: array
+          description: Fields to retrieve with optional aggregation
+          items:
+            $ref: '#/components/schemas/Selection'
+        filters:
+          type: array
+          description: Optional filters to narrow results
+          items:
+            $ref: '#/components/schemas/Filter'
+        aggregations:
+          type: array
+          description: Optional grouping specifications
+          items:
+            $ref: '#/components/schemas/Aggregation'
+    ResponseItem:
+      type: object
+      description: A single result row from an analytics query
+      properties:
+        item:
+          type: object
+          description: Key-value map of selected fields and their values
+          additionalProperties:
+            type: string
+    AnalyticsResponse:
+      type: object
+      description: Response from custom analytics query
+      properties:
+        queryResults:
+          type: array
+          description: Results for each query request
+          items:
+            $ref: '#/components/schemas/QueryResult'
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: integer
+          description: HTTP error code
+        message:
+          type: string
+          description: Error message

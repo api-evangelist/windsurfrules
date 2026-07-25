@@ -1,0 +1,92 @@
+openapi: 3.0.3
+info:
+  title: Windsurf Enterprise analytics teams API
+  description: The Windsurf Enterprise API (formerly Codeium Enterprise API) provides programmatic access to analytics, usage data, billing configuration, and team management for enterprise customers of Windsurf — the AI-native code editor by Codeium. The API enables teams to query code completion usage, Cascade AI analytics, billing configurations, and credit balances. Available for Enterprise plans only. Authentication uses service keys included in the request body.
+  version: 1.0.0
+  contact:
+    name: Windsurf Developer Support
+    url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
+servers:
+- url: https://server.codeium.com/api/v1
+  description: Windsurf Enterprise API
+tags:
+- name: teams
+  description: Team and user analytics
+paths:
+  /UserPageAnalytics:
+    post:
+      operationId: getUserPageAnalytics
+      summary: Get User Page Analytics
+      description: Retrieve user-level analytics data including per-user code completion counts, acceptance rates, and activity metrics. Requires Teams Read-Only service key permission.
+      tags:
+      - teams
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPageAnalyticsRequest'
+      responses:
+        '200':
+          description: User page analytics results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPageAnalyticsResponse'
+        '401':
+          description: Invalid or missing service key
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    UserAnalytics:
+      type: object
+      description: Analytics for a single user
+      properties:
+        email:
+          type: string
+          description: User email
+        completions_shown:
+          type: integer
+          description: Number of code completions shown
+        completions_accepted:
+          type: integer
+          description: Number of code completions accepted
+        acceptance_rate:
+          type: number
+          format: float
+          description: Completion acceptance rate (0.0-1.0)
+        lines_saved:
+          type: integer
+          description: Estimated lines of code saved
+    UserPageAnalyticsResponse:
+      type: object
+      description: User-level analytics response
+      properties:
+        users:
+          type: array
+          description: Analytics data per user
+          items:
+            $ref: '#/components/schemas/UserAnalytics'
+    UserPageAnalyticsRequest:
+      type: object
+      description: Request for user page analytics
+      required:
+      - service_key
+      properties:
+        service_key:
+          type: string
+          description: Service key with Teams Read-Only permission
+        emails:
+          type: array
+          description: Optional list of user emails to filter
+          items:
+            type: string
+        start_timestamp:
+          type: string
+          format: date-time
+          description: Start of the time range
+        end_timestamp:
+          type: string
+          format: date-time
+          description: End of the time range

@@ -1,0 +1,144 @@
+openapi: 3.0.3
+info:
+  title: Windsurf Enterprise analytics billing API
+  description: The Windsurf Enterprise API (formerly Codeium Enterprise API) provides programmatic access to analytics, usage data, billing configuration, and team management for enterprise customers of Windsurf — the AI-native code editor by Codeium. The API enables teams to query code completion usage, Cascade AI analytics, billing configurations, and credit balances. Available for Enterprise plans only. Authentication uses service keys included in the request body.
+  version: 1.0.0
+  contact:
+    name: Windsurf Developer Support
+    url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
+servers:
+- url: https://server.codeium.com/api/v1
+  description: Windsurf Enterprise API
+tags:
+- name: billing
+  description: Usage configuration and credit balance management
+paths:
+  /UsageConfig:
+    post:
+      operationId: setUsageConfig
+      summary: Set Usage Configuration
+      description: Configure usage settings for the team including AI model access controls, feature flags, and usage limits. Requires Billing Write service key permission.
+      tags:
+      - billing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsageConfigRequest'
+      responses:
+        '200':
+          description: Usage configuration updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageConfigResponse'
+        '401':
+          description: Invalid or missing service key
+        '403':
+          description: Insufficient permissions
+  /GetUsageConfig:
+    post:
+      operationId: getUsageConfig
+      summary: Get Usage Configuration
+      description: Retrieve the current usage configuration settings for the team. Requires Billing Read service key permission.
+      tags:
+      - billing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceKeyRequest'
+      responses:
+        '200':
+          description: Current usage configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageConfigResponse'
+        '401':
+          description: Invalid or missing service key
+  /GetTeamCreditBalance:
+    post:
+      operationId: getTeamCreditBalance
+      summary: Get Team Credit Balance
+      description: Retrieve the current credit balance for the enterprise team account, including credits used and remaining. Requires Billing Read service key permission.
+      tags:
+      - billing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceKeyRequest'
+      responses:
+        '200':
+          description: Team credit balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamCreditBalanceResponse'
+        '401':
+          description: Invalid or missing service key
+components:
+  schemas:
+    UsageConfigRequest:
+      type: object
+      description: Request to set usage configuration
+      required:
+      - service_key
+      properties:
+        service_key:
+          type: string
+          description: Service key with Billing Write permission
+        model_access:
+          type: object
+          description: AI model access controls
+          additionalProperties:
+            type: boolean
+        feature_flags:
+          type: object
+          description: Feature flag settings
+          additionalProperties:
+            type: boolean
+    UsageConfigResponse:
+      type: object
+      description: Usage configuration settings
+      properties:
+        model_access:
+          type: object
+          description: Current AI model access settings
+          additionalProperties:
+            type: boolean
+        feature_flags:
+          type: object
+          description: Current feature flag settings
+          additionalProperties:
+            type: boolean
+    ServiceKeyRequest:
+      type: object
+      description: Base request object containing the service key for authentication
+      required:
+      - service_key
+      properties:
+        service_key:
+          type: string
+          description: Enterprise service key with appropriate permissions
+    TeamCreditBalanceResponse:
+      type: object
+      description: Team credit balance information
+      properties:
+        total_credits:
+          type: integer
+          description: Total credits allocated
+        used_credits:
+          type: integer
+          description: Credits consumed
+        remaining_credits:
+          type: integer
+          description: Credits remaining
+        reset_date:
+          type: string
+          format: date-time
+          description: Date when credits reset
