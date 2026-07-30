@@ -7,9 +7,21 @@ description: >-
   conventions, standards, and behavioral instructions. Windsurf offers an Enterprise API for querying code completion
   analytics, Cascade AI usage, billing configuration, and team management.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/windsurfrules.png
 tags:
   - AI Agents
   - AI Copilot
@@ -22,26 +34,42 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/windsurfrules/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: windsurfrules:windsurf-enterprise-api
-    name: Windsurf Enterprise API
-    description: >-
-      The Windsurf Enterprise API provides programmatic access to analytics, usage data, billing configuration, and team
-      management for enterprise customers. It enables teams to query code completion usage, Cascade AI analytics,
-      billing configurations, and credit balances. Available for Enterprise plans only. Authentication uses service
-      keys.
-    humanURL: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
-    baseURL: https://server.codeium.com/api/v1
-    tags:
-      - AI Analytics
-      - Enterprise
-      - Billing
-      - Teams
-    properties:
-      - type: Documentation
-        url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/windsurfrules/refs/heads/main/openapi/windsurf-enterprise-openapi.yml
+- aid: windsurfrules:windsurfrules-analytics-api
+  name: Windsurf analytics API
+  description: Code completion and Cascade AI usage analytics
+  humanURL: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
+  baseURL: https://server.codeium.com/api/v1
+  tags:
+  - analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/windsurfrules-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
+- aid: windsurfrules:windsurfrules-billing-api
+  name: Windsurf billing API
+  description: Usage configuration and credit balance management
+  humanURL: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
+  baseURL: https://server.codeium.com/api/v1
+  tags:
+  - billing
+  properties:
+  - type: OpenAPI
+    url: openapi/windsurfrules-billing-api-openapi.yml
+  - type: Documentation
+    url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
+- aid: windsurfrules:windsurfrules-teams-api
+  name: Windsurf teams API
+  description: Team and user analytics
+  humanURL: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
+  baseURL: https://server.codeium.com/api/v1
+  tags:
+  - teams
+  properties:
+  - type: OpenAPI
+    url: openapi/windsurfrules-teams-api-openapi.yml
+  - type: Documentation
+    url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
 common:
   - type: AgenticAccess
     url: agentic-access/windsurfrules-agentic-access.yml
