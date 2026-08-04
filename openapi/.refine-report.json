@@ -1,0 +1,18 @@
+{
+  "provider": "windsurfrules",
+  "sources": [
+    "windsurfrules-analytics-api-openapi.yml",
+    "windsurfrules-billing-api-openapi.yml",
+    "windsurfrules-teams-api-openapi.yml"
+  ],
+  "outputs": [
+    "windsurfrules-analytics-api-openapi.yml",
+    "windsurfrules-billing-api-openapi.yml",
+    "windsurfrules-teams-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
