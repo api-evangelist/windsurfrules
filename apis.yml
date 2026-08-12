@@ -71,6 +71,9 @@ apis:
   - type: Documentation
     url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
 common:
+  - type: License
+    name: MIT
+    url: https://github.com/Exafunction/windsurf.nvim/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/windsurfrules-agentic-access.yml
   - type: VulnerabilityDisclosure
