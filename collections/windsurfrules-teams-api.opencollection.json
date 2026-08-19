@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Windsurf Enterprise analytics teams API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get User Page Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://server.codeium.com/api/v1/UserPageAnalytics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve user-level analytics data including per-user code completion counts, acceptance rates, and activity metrics. Requires Teams Read-Only service key permission."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

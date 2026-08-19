@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Windsurf Enterprise analytics API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Custom Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://server.codeium.com/api/v1/Analytics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query detailed usage analytics for code completions, chat interactions, and command usage. Supports filtering by user, time range, and data source, with aggregation options for reporting."
+        },
+        {
+          "info": {
+            "name": "Get User Page Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://server.codeium.com/api/v1/UserPageAnalytics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve user-level analytics data including per-user code completion counts, acceptance rates, and activity metrics. Requires Teams Read-Only service key permission."
+        },
+        {
+          "info": {
+            "name": "Get Cascade Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://server.codeium.com/api/v1/CascadeAnalytics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve analytics for Cascade AI agent usage including lines of code generated, AI actions taken, and session metrics. Requires Teams Read-Only service key permission."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Windsurf Enterprise analytics billing API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "billing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Set Usage Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://server.codeium.com/api/v1/UsageConfig",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Configure usage settings for the team including AI model access controls, feature flags, and usage limits. Requires Billing Write service key permission."
+        },
+        {
+          "info": {
+            "name": "Get Usage Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://server.codeium.com/api/v1/GetUsageConfig",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the current usage configuration settings for the team. Requires Billing Read service key permission."
+        },
+        {
+          "info": {
+            "name": "Get Team Credit Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://server.codeium.com/api/v1/GetTeamCreditBalance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the current credit balance for the enterprise team account, including credits used and remaining. Requires Billing Read service key permission."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
