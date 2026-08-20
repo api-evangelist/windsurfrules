@@ -40,6 +40,8 @@ apis:
   humanURL: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
   baseURL: https://server.codeium.com/api/v1
   tags:
+  - Analytics
+  tags_raw:
   - analytics
   properties:
   - type: OpenAPI
@@ -52,6 +54,8 @@ apis:
   humanURL: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
   baseURL: https://server.codeium.com/api/v1
   tags:
+  - Billing
+  tags_raw:
   - billing
   properties:
   - type: OpenAPI
@@ -64,6 +68,8 @@ apis:
   humanURL: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
   baseURL: https://server.codeium.com/api/v1
   tags:
+  - Team
+  tags_raw:
   - teams
   properties:
   - type: OpenAPI
