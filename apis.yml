@@ -7,6 +7,20 @@ description: >-
   conventions, standards, and behavioral instructions. Windsurf offers an Enterprise API for querying code completion
   analytics, Cascade AI usage, billing configuration, and team management.
 type: Index
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: true
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -77,6 +91,8 @@ apis:
   - type: Documentation
     url: https://docs.windsurf.com/plugins/accounts/api-reference/api-introduction
 common:
+  - type: IssueTracker
+    url: https://github.com/Exafunction/windsurf.nvim/issues
   - type: License
     name: MIT
     url: https://github.com/Exafunction/windsurf.nvim/blob/main/LICENSE
